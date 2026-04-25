@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArethmatPro — Math Formula Explorer</title>
+    <meta name="description"
+        content="ArethmatPro is your interactive math formula and reference explorer covering algebra, geometry, calculus, statistics, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.png" alt="Arithmat Pro Logo" class="logo-img"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                    <div style="display:none;align-items:center;justify-content:center;width:100%;height:80px;
+               background:linear-gradient(135deg,#0a1628,#0d2060);border-radius:14px;
+               font-family:Outfit,sans-serif;font-weight:800;font-size:1.2rem;
+               color:#00bfff;text-shadow:0 0 12px #00bfff;letter-spacing:1px;">Arithmat Pro</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section-label">Topics</div>
+        <nav class="topic-nav" id="topicNav">
+            <button class="topic-btn active" data-topic="general" id="topic-general">
+                <span class="topic-icon">🧮</span> General Math
+            </button>
+            <button class="topic-btn" data-topic="algebra" id="topic-algebra">
+                <span class="topic-icon">📐</span> Algebra
+            </button>
+            <button class="topic-btn" data-topic="geometry" id="topic-geometry">
+                <span class="topic-icon">📏</span> Geometry
+            </button>
+            <button class="topic-btn" data-topic="calculus" id="topic-calculus">
+                <span class="topic-icon">∫</span> Calculus
+            </button>
+            <button class="topic-btn" data-topic="statistics" id="topic-statistics">
+                <span class="topic-icon">📊</span> Statistics
+            </button>
+            <button class="topic-btn" data-topic="trigonometry" id="topic-trigonometry">
+                <span class="topic-icon">△</span> Trigonometry
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="ai-badge">
+                <div class="ai-pulse"></div>
+                <span>Formula Explorer</span>
+            </div>
+            <p class="footer-note">Interactive Math Reference</p>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+            </button>
+            <div class="topbar-title">
+                <span id="currentTopicLabel">General Math</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="topbar-btn" id="themeToggleBtn" title="Toggle light/dark mode">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="themeIcon">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Reference Content -->
+        <div class="content-area" id="contentArea">
+            <!-- Injected by app.js based on selected topic -->
+        </div>
+
+    </main>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Botpress Chatbot Popup -->
+    <div class="bp-popup" id="bpPopup" role="tooltip" aria-live="polite">
+        <button class="bp-popup-close" id="bpPopupClose" aria-label="Dismiss">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <div class="bp-popup-body">
+            <div class="bp-popup-icon">🤖</div>
+            <div class="bp-popup-text">
+                <strong>Need help with a math problem?</strong>
+                <span>You can solve your problems here ✨</span>
+            </div>
+        </div>
+        <div class="bp-popup-arrow"></div>
+    </div>
+
+    <script src="app.js"></script>
+
+    <!-- Botpress Webchat -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/04/25/11/20260425113445-AB7XEPSX.js" defer></script>
+
+</body>
+
+</html>
